@@ -7,7 +7,8 @@ cp -rv configs/* $ROOTFS
 
 cp debian-gemini-config.sh $ROOTFS/config.sh
 chroot $ROOTFS /config.sh
-rm $ROOTFS /config.sh
+chroot $ROOTFS rm /config.sh
+cp /data/system.img $ROOTFS/data/
 
 umount -lR $ROOTFS/proc/
 umount -lR $ROOTFS/dev
