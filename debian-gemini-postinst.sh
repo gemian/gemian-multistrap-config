@@ -8,7 +8,10 @@ cp -rv configs/* $ROOTFS
 cp debian-gemini-config.sh $ROOTFS/config.sh
 chroot $ROOTFS /config.sh
 chroot $ROOTFS rm /config.sh
+
+#if on gemini pda
 cp /data/system.img $ROOTFS/data/
+#if not change to where ever you've downloaded and uncompressed this to: http://gemian.thinkglobally.org/system.img.xz
 
 umount -lR $ROOTFS/proc/
 umount -lR $ROOTFS/dev
