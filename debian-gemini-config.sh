@@ -9,6 +9,7 @@ systemctl enable usb-tethering
 systemctl enable ssh
 
 systemctl enable system.mount
+systemctl enable tmp.mount
 systemctl enable android-mount.service
 systemctl enable droid-hal-init
 systemctl enable lxc@android.service

@@ -11,11 +11,10 @@ else
   fi
 fi
 
-sudo mount -o rbind /proc $ROOTFS/proc
-sudo mount -o rbind /dev $ROOTFS/dev
-sudo mount -o rbind /sys $ROOTFS/sys
-sudo mount -o tmpfs $ROOTFS/var/cache
-sudo mount none -o tmpfs $ROOTFS/var/cache
+sudo mount proc -t proc $ROOTFS/proc
+sudo mount dev -t devtmpfs $ROOTFS/dev
+sudo mount devpts -t devpts $ROOTFS/dev/pts
+sudo mount sys -t sysfs $ROOTFS/sys
 sudo mount none -t tmpfs $ROOTFS/var/cache
 sudo mount none -t tmpfs $ROOTFS/var/run
 sudo mount none -t tmpfs $ROOTFS/tmp
