@@ -1,4 +1,4 @@
-ROOTFS=gemian-rootfs
+ROOTFS=/.stowaways/debian
 
 ./debian-gemini-setup.sh $ROOTFS
 chroot $ROOTFS dpkg --configure -a
