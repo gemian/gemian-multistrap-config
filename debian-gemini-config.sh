@@ -29,6 +29,9 @@ ldconfig
 # PulseAudio
 # /etc/pulseaudio/default.pa
 
+groupadd -g 1001 radio
+useradd -u 1001 -g 1001 -s /usr/sbin/nologin radio
+
 groupadd -g 1000 aid_system
 groupadd -g 1003 aid_graphics
 groupadd -g 1004 aid_input
