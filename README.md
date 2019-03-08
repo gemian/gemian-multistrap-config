@@ -20,3 +20,12 @@ You will also need a stowaway kernel to boot the new folder:
 wget https://gemian.thinkglobally.org/linux-boot-2018-06-06-stowaways-debian.img
 sudo dd if=linux-boot-2018-06-06-stowaways-debian.img of=/dev/disk/by-partlabel/linux_boot
 ```
+
+If you want to make an image file for distribution:
+```
+sudo truncate -s 2G stretch.img
+sudo mkdir stretch
+sudo mkfs.ext4 -q stretch.img
+sudo mount stretch.img stretch
+
+```

@@ -1,5 +1,10 @@
 ROOTFS=/.stowaways/debian
 
+#if on gemini pda
+mkdir -p $ROOTFS/data/
+cp /data/system.img $ROOTFS/data/
+#if not change to where ever you've downloaded and uncompressed the latest system.*.img.xz, from https://gemian.thinkglobally.org/system/
+
 ./debian-gemini-setup.sh $ROOTFS
 chroot $ROOTFS dpkg --configure -a
 
@@ -8,10 +13,6 @@ cp -rv configs/* $ROOTFS
 cp debian-gemini-config.sh $ROOTFS/config.sh
 chroot $ROOTFS /config.sh
 rm $ROOTFS/config.sh
-
-#if on gemini pda
-cp /data/system.img $ROOTFS/data/
-#if not change to where ever you've downloaded and uncompressed this to: http://gemian.thinkglobally.org/system.img.xz
 
 umount -l $ROOTFS/proc
 umount -l $ROOTFS/dev/pts
