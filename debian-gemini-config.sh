@@ -45,7 +45,7 @@ groupadd -g 3004 aid_inet_raw
 groupadd -g 3005 aid_inet_admin
 groupadd -g 100000 gemini
 
-useradd -m -u 100000 -g 100000 -G audio,video,sudo,aid_system,aid_graphics,aid_input,aid_audio,aid_net_bt_admin,aid_net_bt,aid_inet,aid_inet_raw,aid_inet_admin -s /bin/bash gemini
+useradd -m -u 100000 -g 100000 -G audio,video,users,sudo,aid_system,aid_graphics,aid_input,aid_audio,aid_net_bt_admin,aid_net_bt,aid_inet,aid_inet_raw,aid_inet_admin -s /bin/bash gemini
 
 echo "gemini:gemini" | chpasswd
 
@@ -55,3 +55,7 @@ ln -sf ../lib/systemd/systemd /sbin/init
 mkdir -p /usr/lib/chromium
 ln -sf /usr/lib/aarch64-linux-gnu/libhybris-egl/libEGL.so.1.0.0 /usr/lib/chromium/libEGL.so
 ln -sf /usr/lib/aarch64-linux-gnu/libhybris-egl/libGLESv2.so.2.0.0 /usr/lib/chromium/libGLESv2.so
+
+# Hack to enable building of things linking against EGL/GLESv2
+ln -sf /usr/lib/aarch64-linux-gnu/libhybris-egl/libEGL.so.1.1.0 /usr/lib/aarch64-linux-gnu/libEGL.so
+ln -sf /usr/lib/aarch64-linux-gnu/libhybris-egl/libGLESv2.so.2.1.0 /usr/lib/aarch64-linux-gnu/libGLESv2.so
